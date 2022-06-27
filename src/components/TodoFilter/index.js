@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import {
-  filterPrioritiesChange,
   filterSearchChange,
+  filterPrioritiesChange,
   filterStatusChange,
-} from "../../redux/actions";
+} from "./FilterSlice";
 
 const { Search } = Input;
 

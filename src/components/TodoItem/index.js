@@ -2,7 +2,7 @@ import { Row, Tag, Checkbox } from "antd";
 import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { toggleTodoCompleted } from "../../redux/actions";
+import { toggleTodoCompleted } from "../TodoList/TodosSlice";
 
 const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();

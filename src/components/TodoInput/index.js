@@ -3,7 +3,7 @@ import { Input, Select, Tag, Button } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
-import { addTodo } from "../../redux/actions";
+import { addTodo } from "../TodoList/TodosSlice";
 
 const TodoInput = () => {
   const dispatch = useDispatch();

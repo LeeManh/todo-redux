@@ -1,14 +1,12 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore } from "@reduxjs/toolkit";
 
-import rootReducer from "./reducer";
+import filtersReducer from "../components/TodoFilter/FilterSlice";
+import todoListReducer from "../components/TodoList/TodosSlice";
 
-const composedEnhancer = composeWithDevTools(
-  // Add whatever middleware you actually want to use here
-  applyMiddleware()
-  // other store enhancers if any
-);
-
-const store = createStore(rootReducer, composedEnhancer);
-
+const store = configureStore({
+  reducer: {
+    filters: filtersReducer,
+    todoList: todoListReducer,
+  },
+});
 export default store;

@@ -6,7 +6,7 @@ import { todoListRemaning } from "../../redux/selectors";
 
 const TodoList = () => {
   const todoList = useSelector(todoListRemaning);
-
+  console.log({ todoList });
   return (
     <Row style={{ overflow: "auto" }}>
       <Typography.Paragraph className="title">Todo List</Typography.Paragraph>
