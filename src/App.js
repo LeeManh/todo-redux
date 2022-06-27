@@ -14,7 +14,7 @@ const App = () => {
           level={2}
           style={{ textAlign: "center", fontSize: "24px", fontWeight: "bold" }}
         >
-          Todo with Redux Core
+          Todo with Redux
         </Typography.Title>
         <TodoFilter />
         <Divider style={{ margin: "5px 0 10px" }} />

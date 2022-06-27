@@ -2,13 +2,13 @@ import { Row, Col, Typography } from "antd";
 import { useSelector } from "react-redux";
 
 import TodoItem from "../TodoItem";
+import { todoListRemaning } from "../../redux/selectors";
 
 const TodoList = () => {
-  const todoList = useSelector((state) => state.todoList);
-  console.log(todoList);
+  const todoList = useSelector(todoListRemaning);
 
   return (
-    <Row>
+    <Row style={{ overflow: "auto" }}>
       <Typography.Paragraph className="title">Todo List</Typography.Paragraph>
       <Col span={24}>
         {todoList.map((todo) => (

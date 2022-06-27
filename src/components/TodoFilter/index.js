@@ -1,23 +1,55 @@
 import { Row, Col, Input, Typography, Radio, Select, Tag } from "antd";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import {
+  filterPrioritiesChange,
+  filterSearchChange,
+  filterStatusChange,
+} from "../../redux/actions";
 
 const { Search } = Input;
-const { Option } = Select;
 
 const TodoFilter = () => {
+  const dispatch = useDispatch();
+
+  const [searchText, setSearchText] = useState("");
+  const [status, setStatus] = useState("All");
+  const [priorities, setPriorities] = useState([]);
+
+  const handleChangeSearchTextChange = (e) => {
+    setSearchText(e.target.value);
+    dispatch(filterSearchChange(e.target.value));
+  };
+
+  const handleChangeStatusChange = (e) => {
+    setStatus(e.target.value);
+    dispatch(filterStatusChange(e.target.value));
+  };
+
+  const handleChangePrioritiesChange = (value) => {
+    setPriorities(value);
+    dispatch(filterPrioritiesChange(value));
+  };
+
   return (
     <Row>
       <Col span={24} style={{ marginBottom: "15px" }}>
         <Typography.Paragraph className="title">Search</Typography.Paragraph>
-        <Search placeholder="Enter TodoName to search ..." />
+        <Search
+          placeholder="Enter name to search ..."
+          value={searchText}
+          onChange={handleChangeSearchTextChange}
+        />
       </Col>
       <Col span={24} style={{ marginBottom: "15px" }}>
         <Typography.Paragraph className="title">
           Filter By Status
         </Typography.Paragraph>
-        <Radio.Group>
+        <Radio.Group value={status} onChange={handleChangeStatusChange}>
           <Radio value="All">All</Radio>
-          <Radio value="Todo">Completed</Radio>
           <Radio value="Completed">Completed</Radio>
+          <Radio value="Todo">Todo</Radio>
         </Radio.Group>
       </Col>
       <Col span={24} style={{ marginBottom: "15px" }}>
@@ -31,6 +63,8 @@ const TodoFilter = () => {
             width: "100%",
           }}
           placeholder="Please select priority"
+          value={priorities}
+          onChange={handleChangePrioritiesChange}
         >
           <Select.Option value="High" label="High">
             <Tag color="red">High</Tag>
