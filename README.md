@@ -1,3 +1,4 @@
+Project to lear redux, redux-toolkit 🤓🤓🤓
 ## Demo
 https://leemanh.github.io/todo-redux/
 
