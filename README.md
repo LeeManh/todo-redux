@@ -1,6 +1,8 @@
 ## Demo
 https://leemanh.github.io/todo-redux/
 
+![1](https://user-images.githubusercontent.com/63250449/178267402-89bfef90-2907-4b6a-8627-ac0a7254e87e.png)
+
 ## Available Scripts
 
 ### `npm install`
